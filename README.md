@@ -9,20 +9,7 @@ This repository contains the implementation of the paper:
 
 **DiPGrasp: Parallel Local Searching for Efficient Differentiable Grasp Planning**  
 Wenqiang Xu*, Jieyi Zhang*, Tutian Tang, Zhenjun Yu, Yutong Li, Cewu Lu (* = Equal contribution)  
-**IEEE Robotics and Automation Letters**  
-
-If you find our code or paper useful, please consider citing
-```bibtex
-@article{dipgrasp,
-      title = {DiPGrasp: Parallel Local Searching for Efficient Differentiable Grasp Planning},
-      author = {Xu, Wenqiang and Zhang, Jieyi and Tang, Tutian and Yu, Zhenjun and Li, Yutong and Lu, Cewu},
-      journal = {IEEE Robotics and Automation Letters},
-      year = {2024},
-      publisher = {IEEE},
-    }
-}
-
-```
+**IEEE Robotics and Automation Letters**
 
 ## Get-Started
 
@@ -72,7 +59,8 @@ You may notice that we change the target object file, because the simulator need
 
 
 ## Generate the grasp pose for a batch of object
-To generate a large number of poses on different objects, we provide a script file `scripts/generate_for_batch_obj.py`, you can run the following command to generate the poses:
+To generate a large number of poses on different objects, we provide a [script file](scripts/generate_for_batch_obj.py), you can run the following command to generate the poses:
+
 
 ```
 python scripts/generate_for_batch_obj.py 
@@ -84,3 +72,17 @@ The number of generated poses will be logged into `results.log`.
 
 You could generate grasp poses on your own objects by modifying the script.
 The simulator only supports object with .obj format.
+
+## Citation
+If you find our code or paper useful, please consider citing
+```bibtex
+@article{dipgrasp,
+      title = {DiPGrasp: Parallel Local Searching for Efficient Differentiable Grasp Planning},
+      author = {Xu, Wenqiang and Zhang, Jieyi and Tang, Tutian and Yu, Zhenjun and Li, Yutong and Lu, Cewu},
+      journal = {IEEE Robotics and Automation Letters},
+      year = {2024},
+      publisher = {IEEE},
+    }
+}
+
+```
