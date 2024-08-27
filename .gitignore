@@ -1,0 +1,6 @@
+.idea/
+assets/
+**/__pycache__
+output/
+outputs/
+*.log

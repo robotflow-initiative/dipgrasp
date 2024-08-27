@@ -1,0 +1,26 @@
+
+device: cuda:0
+datafile: 'assets/object/single/cracker_box.ply'
+savepath: 'output'
+simulator: False
+
+visualize_setting:
+  visualize: True
+  visualize_detail: False
+  visualize_every_step: 50
+  visualize_after_simulator: False
+
+algo_params:
+  total_num: 2048
+  sample_time: 256
+  min_distance: 0.15
+  max_distance: 0.20
+  joint_barrier_ratio: 0.2
+  loop_1_num: 20
+  loop_2_num: 10
+  norm_filter: False
+  collision_filter_threshold: 128
+
+defaults:
+  - gripper: svh
+  - _self_

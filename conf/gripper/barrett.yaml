@@ -1,0 +1,11 @@
+name: barrett
+optim_params:
+  ep_coeff: 2e0
+  en_coeff: 1e-3
+  barrier_coeff: 1e-2
+  joints_limit_coeff: 2e0
+  barrier_threshold: 0.1
+  decay_rate: 0.99
+  update_step_t: 2e-1
+  update_step_R: 1e-1
+  update_step_q: 1e1
