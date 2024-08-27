@@ -11,7 +11,7 @@ This repository contains the implementation of the paper:
 Wenqiang Xu*, Jieyi Zhang*, Tutian Tang, Zhenjun Yu, Yutong Li, Cewu Lu (* = Equal contribution)  
 **IEEE Robotics and Automation Letters**
 
-## Get-Started
+## Installation
 
 The code could run on both Linux and Windows system. 
 
