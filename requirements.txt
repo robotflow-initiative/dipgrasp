@@ -109,7 +109,7 @@ trimesh==4.4.6
 triton==3.0.0
 typing_extensions==4.12.2
 tzdata==2024.1
-urdfpy==0.0.22
+urdfpy @ git+https://github.com/SJTUzjy/urdfpy.git@afc0e0b821256ca952e59aefa0f6fe35a2caffcf
 urllib3==2.2.2
 vhacdx==0.0.8.post1
 wcwidth==0.2.13
