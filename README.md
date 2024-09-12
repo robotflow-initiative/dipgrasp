@@ -33,6 +33,10 @@ pip install -r requirements.txt --no-deps
 ### Download the essential components
 We upload the objects mentioned in paper and some essential components on https://huggingface.co/datasets/robotflow/DipGrasp  
 You can follow the instructions to download the assets.
+After downloading, you should move the `assets` directory to the project main directory:
+```shell
+mv path/to/assets .
+```
 
 ## Generate the grasp pose for one object
 You can run the following command to generate the grasp pose:
@@ -72,7 +76,25 @@ The number of generated poses will be logged into `results.log`.
 
 You could generate grasp poses on your own objects by modifying the script.
 The simulator only supports object with .obj format.
+## Adapting to Custom Hand Models
+If you're interested in applying our algorithm to your custom hand model, you can easily do so by following these steps:
 
+1. **Generate the Point Cloud XML File:**
+   - First, obtain the palmar side point cloud XML file. We've provided a point cloud generator as discussed in Section IV.D of our paper. You can find this tool in the `assets/xml_generator` directory. For detailed instructions, check out [this document](media/XMLGeneratorTutorial.md).
+
+2. **Organize Your Files:**
+   - Place the generated XML file alongside your hand URDF file and any related description files within the `assets/gripper` directory. Ensure they follow the same format as the hand models we currently support.
+
+3. **Update Configuration Files:**
+   - Add a new gripper configuration file to the `conf/gripper` directory, similar to the existing gripper configuration files.
+
+4. **Modify the Main Script:**
+   - Include the name of your new hand model in the list within [main.py](./main.py) at line 113.
+
+5. **Adjust Initial Position Settings:**
+   - Ensure that the hand is oriented correctly towards the object in its initial position. You can tweak the `init_sample_config` function in [config.py](core/config.py) and look at the `correct_coordinate` function in [samplePosition.py](core/geometry/samplePosition.py) for guidance.
+
+By following these steps, you'll be able to integrate your custom hand model into our system.
 ## Citation
 If you find our code or paper useful, please consider citing
 ```bibtex
