@@ -166,6 +166,7 @@ class Gripper:
             print(link.name, "No collision mesh here!")
             return np.asarray([]), np.asarray([])
         geometry = link.visuals[0].geometry
+        tf = link.visuals[0].origin
         if geometry.meshes:
             bbox_ = trimesh.bounds.oriented_bounds(geometry.meshes[0])
             transformation = bbox_[0]
@@ -174,8 +175,12 @@ class Gripper:
             self.bbox[link] = [transformation, bound]
         if geometry.meshes is not None:
             mesh = geometry.meshes[0]
-            v = o3d.utility.Vector3dVector(np.asarray(mesh.vertices))
-            f = o3d.utility.Vector3iVector(np.asarray(mesh.faces))
+            v_np = np.asarray(mesh.vertices)
+            f_np = np.asarray(mesh.faces)
+            # NOTE: apply the local origin transformation of the link visual element
+            v_np = v_np @ tf[:3, :3].T + tf[:3, 3]
+            v = o3d.utility.Vector3dVector(v_np)
+            f = o3d.utility.Vector3iVector(f_np)
             mesh = o3d.geometry.TriangleMesh(v, f)
             mesh.compute_vertex_normals()
             PC = mesh.sample_points_uniformly(number_of_points=sample_point_number, use_triangle_normal=True)
