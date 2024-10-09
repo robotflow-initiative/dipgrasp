@@ -38,6 +38,19 @@ After downloading, you should move the `assets` directory to the project main di
 mv path/to/assets .
 ```
 
+### Install the essential dependencies for RFUniverse simulator
+Please use the following command to install the dependency libraries for RFUniverse:
+```shell
+sudo apt install minizip libc6-dev
+```
+If you are using Ubuntu 22.04, you’ll also need to run this additional command:
+```shell
+sudo ln -s /lib/x86_64-linux-gnu/libdl.so.2 /lib/x86_64-linux-gnu/libdl.so
+```
+--- 
+
+This version is structured to guide users step-by-step, making it easy to follow.
+
 ## Generate the grasp pose for one object
 You can run the following command to generate the grasp pose:
 ```
