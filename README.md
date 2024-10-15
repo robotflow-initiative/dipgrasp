@@ -67,7 +67,7 @@ python main.py gripper=shadow
 ```
 where the `shadow` could be repleced by `svh` or `barrett`.
 
-By setting the the `algo_params.sample_time`, you can adjust the number of parallel gripper trial to fit the memory size, e.g:
+By setting the the `algo_params.sample_time`, you can adjust the number of parallel gripper trial to fit the memory size, e.g.:
 ```shell
 python main.py algo_params.sample_time=64
 ```
