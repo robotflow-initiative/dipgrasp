@@ -62,10 +62,16 @@ The output pose will be saved at `output` directory, consisting of two numpy fil
 while the `joint_state.npy` contains a numpy array with shape `(N, D)`, where `N` is the number of generated poses and the `D` is the DoF of the gripper.
 
 To generate the pose with other grippers, you could use the following command:
-```
+```shell
 python main.py gripper=shadow
 ```
 where the `shadow` could be repleced by `svh` or `barrett`.
+
+By setting the the `algo_params.sample_time`, you can adjust the number of parallel gripper trial to fit the memory size, e.g:
+```shell
+python main.py algo_params.sample_time=64
+```
+The default value of `algo_params.sample_time` is 256, which typically occupies about 16GB memory.
 
 To get the subtle and stable pose where the gripper contacts with the object surface, we use the [RFUniverse](https://github.com/robotflow-initiative/rfuniverse) as the simulator to refine the generated poses.
 You can use the following command to get the refined poses:
